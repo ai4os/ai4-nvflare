@@ -1,0 +1,44 @@
+ARG NVF_BASE_IMAGE_DASHBOARD
+FROM ${NVF_BASE_IMAGE_DASHBOARD}
+
+ENV SHELL=/bin/bash
+
+ARG NVF_REPO=NVIDIA
+ARG NVF_VERSION=2.4
+ENV NVF_BRANCH=${NVF_VERSION}
+
+RUN apk update && \
+	apk add bash && \
+	apk add git && \
+	apk add gcc python3-dev musl-dev linux-headers && \
+	apk add zip
+
+RUN pip install -U pip
+RUN pip install -U setuptools
+
+WORKDIR /workspace
+RUN git clone https://github.com/${NVF_REPO}/NVFlare.git --branch ${NVF_BRANCH} --single-branch NVFlare
+
+WORKDIR /workspace/NVFlare
+RUN pip install -e .
+
+WORKDIR /workspace
+
+#
+# waitress
+#
+RUN pip install -U waitress
+
+COPY ./dashboard/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+COPY ./dashboard/run.sh /run.sh
+RUN chmod +x /run.sh
+
+COPY ./dashboard/app /app
+
+ENV PYTHONPATH=/app
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["/run.sh"]

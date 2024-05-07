@@ -1,0 +1,27 @@
+ARG NVF_BASE_IMAGE_SERVER
+FROM ${NVF_BASE_IMAGE_SERVER}
+
+ENV SHELL=/bin/bash
+
+ARG NVF_REPO
+ARG NVF_VERSION
+ENV NVF_BRANCH=${NVF_VERSION}
+
+RUN apt-get update && apt-get install -y \
+	git \
+	iputils-ping \
+	lsof \
+	netcat \
+	vim
+
+RUN pip install --upgrade pip
+RUN pip install --upgrade setuptools
+RUN pip install --upgrade jupyterlab
+
+WORKDIR /workspace
+RUN git clone https://github.com/${NVF_REPO}/NVFlare.git --branch ${NVF_BRANCH} --single-branch NVFlare
+
+WORKDIR /workspace/NVFlare
+RUN pip install -e .
+
+WORKDIR /workspace
