@@ -127,7 +127,7 @@ job "ai4-nvflare-01" {
         "traefik.enable=true",
         "traefik.http.routers.${NOMAD_META_instance_id}-server-jupyter.tls=true",
         "traefik.http.routers.${NOMAD_META_instance_id}-server-jupyter.entrypoints=websecure",
-        "traefik.http.routers.${NOMAD_META_instance_id}-server-jupyter.rule=Host(`${NOMAD_META_instance_id}-server-jupyter.${NOMAD_META_hostname}`)",
+        "traefik.http.routers.${NOMAD_META_instance_id}-server-jupyter.rule=Host(`${NOMAD_META_instance_id}-server.${NOMAD_META_hostname}`)",
       ]
     }
  
@@ -138,7 +138,7 @@ job "ai4-nvflare-01" {
         "traefik.enable=true",
         "traefik.http.routers.${NOMAD_META_instance_id}-client1-jupyter.tls=true",
         "traefik.http.routers.${NOMAD_META_instance_id}-client1-jupyter.entrypoints=websecure",
-        "traefik.http.routers.${NOMAD_META_instance_id}-client1-jupyter.rule=Host(`${NOMAD_META_instance_id}-client1-jupyter.${NOMAD_META_hostname}`)",
+        "traefik.http.routers.${NOMAD_META_instance_id}-client1-jupyter.rule=Host(`${NOMAD_META_instance_id}-client1.${NOMAD_META_hostname}`)",
       ]
     }
  
@@ -149,7 +149,7 @@ job "ai4-nvflare-01" {
         "traefik.enable=true",
         "traefik.http.routers.${NOMAD_META_instance_id}-client2-jupyter.tls=true",
         "traefik.http.routers.${NOMAD_META_instance_id}-client2-jupyter.entrypoints=websecure",
-        "traefik.http.routers.${NOMAD_META_instance_id}-client2-jupyter.rule=Host(`${NOMAD_META_instance_id}-client2-jupyter.${NOMAD_META_hostname}`)",
+        "traefik.http.routers.${NOMAD_META_instance_id}-client2-jupyter.rule=Host(`${NOMAD_META_instance_id}-client2.${NOMAD_META_hostname}`)",
       ]
     }
  
@@ -160,7 +160,7 @@ job "ai4-nvflare-01" {
         "traefik.enable=true",
         "traefik.http.routers.${NOMAD_META_instance_id}-client3-jupyter.tls=true",
         "traefik.http.routers.${NOMAD_META_instance_id}-client3-jupyter.entrypoints=websecure",
-        "traefik.http.routers.${NOMAD_META_instance_id}-client3-jupyter.rule=Host(`${NOMAD_META_instance_id}-client3-jupyter.${NOMAD_META_hostname}`)",
+        "traefik.http.routers.${NOMAD_META_instance_id}-client3-jupyter.rule=Host(`${NOMAD_META_instance_id}-client3.${NOMAD_META_hostname}`)",
       ]
     }
  
