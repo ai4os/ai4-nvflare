@@ -26,6 +26,13 @@ jobs:
           username: ${{ vars.HARBOR_USERNAME  }}
           password: ${{ secrets.HARBOR_TOKEN }}
 
+      - name: Read env file
+        uses: cardinalby/export-env-action@v2
+        id: readEnvFile 
+        with:
+          export: 'false'
+          envFile: '2.4.1rc7.env'
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
