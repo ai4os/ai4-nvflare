@@ -37,37 +37,37 @@ jobs:
 
       - name: Build and push (server)
         uses: docker/build-push-action@v5
-        env:
-          NVF_REPO: ${{ env.NVF_REPO  }}
-          NVF_VERSION: ${{ env.NVF_VERSION }}
-          NVF_BASE_IMAGE_SERVER: ${{ env.NVF_BASE_IMAGE_SERVER }}
         with:
           context: ./docker
           push: true
           tags: ${{ vars.HARBOR_URL }}/ai4os/ai4-nvflare-server:${{ github.ref_name }}
           file: ./docker/Dockerfile-server
+          build-args: |
+            NVF_REPO = ${{ env.NVF_REPO  }}
+            NVF_VERSION = ${{ env.NVF_VERSION }}
+            NVF_BASE_IMAGE_SERVER = ${{ env.NVF_BASE_IMAGE_SERVER }}
 
       - name: Build and push (client)
         uses: docker/build-push-action@v5
-        env:
-          NVF_REPO: ${{ env.NVF_REPO  }}
-          NVF_VERSION: ${{ env.NVF_VERSION }}
-          NVF_BASE_IMAGE_CLIENT: ${{ env.NVF_BASE_IMAGE_CLIENT }}
         with:
           context: ./docker
           push: true
           tags: ${{ vars.HARBOR_URL }}/ai4os/ai4-nvflare-client:${{ github.ref_name }}
           file: ./docker/Dockerfile-client
+          build-args: |
+            NVF_REPO = ${{ env.NVF_REPO  }}
+            NVF_VERSION = ${{ env.NVF_VERSION }}
+            NVF_BASE_IMAGE_CLIENT = ${{ env.NVF_BASE_IMAGE_CLIENT }}
 
       - name: Build and push (dashboard)
         uses: docker/build-push-action@v5
-        env:
-          NVF_REPO: ${{ env.NVF_REPO  }}
-          NVF_VERSION: ${{ env.NVF_VERSION }}
-          NVF_BASE_IMAGE_DASHBOARD: ${{ env.NVF_BASE_IMAGE_DASHBOARD }}
         with:
           context: ./docker
           push: true
           tags: ${{ vars.HARBOR_URL }}/ai4os/ai4-nvflare-dashboard:${{ github.ref_name }}
           file: ./docker/Dockerfile-dashboard
+          build-args:
+            NVF_REPO: ${{ env.NVF_REPO  }}
+            NVF_VERSION: ${{ env.NVF_VERSION }}
+            NVF_BASE_IMAGE_DASHBOARD: ${{ env.NVF_BASE_IMAGE_DASHBOARD }}
 
