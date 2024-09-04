@@ -10,9 +10,9 @@
     "license": "MIT",
     "date_creation": "2024-05-07",
     "sources": {
-		"dockerfile_repo": "https://github.com/ai4os/ai4-nvflare",
-		"docker_registry_repo": "registry.services.ai4os.eu/ai4os/ai4-nvflare-dashboard",
-		"code": "https://github.com/ai4os/ai4-cvat"
+		"dockerfile_repo": "https://github.com/ai4os/ai4os-nvflare",
+		"docker_registry_repo": "registry.services.ai4os.eu/ai4os/ai4os-nvflare-dashboard",
+		"code": "https://github.com/ai4os/ai4os-nvflare"
 	},
     "continuous_integration": {
         "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/00000000000000000000000000000000/main",

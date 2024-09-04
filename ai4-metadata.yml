@@ -7,8 +7,8 @@ dates:
   created: '2024-05-07'
   updated: '2024-09-04'
 links:
-  source_code: https://github.com/ai4os/ai4-nvflare
-  docker_image: registry.services.ai4os.eu/ai4os/ai4-nvflare-dashboard
+  source_code: https://github.com/ai4os/ai4os-nvflare
+  docker_image: registry.services.ai4os.eu/ai4os/ai4os-nvflare-dashboard
   ai4_template: ai4-template/1.9.9
 tags:
   - federated learning
