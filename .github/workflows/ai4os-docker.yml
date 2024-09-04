@@ -30,6 +30,7 @@ jobs:
         uses: cardinalby/export-env-action@v2
         id: readEnvFile 
         with:
+          export: 'true'
           envFile: './docker/2.4.1rc7.env'
 
       - name: Set up Docker Buildx
