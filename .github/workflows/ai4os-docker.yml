@@ -30,7 +30,6 @@ jobs:
         uses: cardinalby/export-env-action@v2
         id: readEnvFile 
         with:
-          export: 'true'
           envFile: './docker/2.4.1rc7.env'
 
       - name: Set up Docker Buildx
@@ -38,6 +37,10 @@ jobs:
 
       - name: Build and push (server)
         uses: docker/build-push-action@v5
+        env:
+          NVF_REPO=${{ env.NVF_REPO  }}
+          NVF_VERSION=${{ env.NVF_VERSION }}
+          NVF_BASE_IMAGE_SERVER=${{ NVF_BASE_IMAGE_SERVER }}
         with:
           context: ./docker
           push: true
