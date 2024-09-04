@@ -66,8 +66,8 @@ jobs:
           push: true
           tags: ${{ vars.HARBOR_URL }}/ai4os/ai4-nvflare-dashboard:${{ github.ref_name }}
           file: ./docker/Dockerfile-dashboard
-          build-args:
-            NVF_REPO: ${{ env.NVF_REPO  }}
-            NVF_VERSION: ${{ env.NVF_VERSION }}
-            NVF_BASE_IMAGE_DASHBOARD: ${{ env.NVF_BASE_IMAGE_DASHBOARD }}
+          build-args: |
+            NVF_REPO = ${{ env.NVF_REPO  }}
+            NVF_VERSION = ${{ env.NVF_VERSION }}
+            NVF_BASE_IMAGE_DASHBOARD = ${{ env.NVF_BASE_IMAGE_DASHBOARD }}
 
