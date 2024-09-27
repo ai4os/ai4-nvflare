@@ -21,18 +21,18 @@ job "ai4-nvflare-01" {
     #
     # dashboard
     #
-    image_dashboard                     = "sht3v0/ai4-nvflare-dashboard:2.4.1rc7"
+    image_dashboard                     = "sht3v0/ai4-nvflare-dashboard:2.5.0"
     dashboard_credentials               = "admin:********"
      
     #
     # server
     #
-    image_server                        = "sht3v0/ai4-nvflare-server:2.4.1rc7"
+    image_server                        = "sht3v0/ai4-nvflare-server:2.5.0"
      
     #
     # client
     #
-    image_client                        = "sht3v0/ai4-nvflare-client:2.4.1rc7"
+    image_client                        = "sht3v0/ai4-nvflare-client:2.5.0"
     wandb_api_key                       = "********"
     wandb_mode                          = "online"
     wandb__service_wait                 = "120"
