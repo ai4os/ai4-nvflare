@@ -153,7 +153,7 @@ job "{###JOB_UUID###}" {
         LOCAL_PATH                  = "/storage"
       }
       config {
-        image   = "ignacioheredia/ai4-docker-storage"
+        image   = "registry.services.ai4os.eu/ai4os/docker-storage:latest"
         privileged = true
         volumes = [
           "/nomad-storage/${NOMAD_META_job_uuid}.${NOMAD_META_hostname}:/storage:shared",
