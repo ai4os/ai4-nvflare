@@ -40,7 +40,7 @@ jobs:
         with:
           context: ./docker
           push: true
-          tags: ${{ vars.HARBOR_URL }}/ai4os/ai4os-nvflare-server:${{ github.ref_name }}
+          tags: ${{ vars.HARBOR_URL }}/ai4os/ai4os-nvflare-server:${{ env.NVF_VERSION }}
           file: ./docker/Dockerfile-server
           build-args: |
             NVF_REPO=${{env.NVF_REPO}}
@@ -52,7 +52,7 @@ jobs:
         with:
           context: ./docker
           push: true
-          tags: ${{ vars.HARBOR_URL }}/ai4os/ai4os-nvflare-client:${{ github.ref_name }}
+          tags: ${{ vars.HARBOR_URL }}/ai4os/ai4os-nvflare-client:${{ env.NVF_VERSION }}
           file: ./docker/Dockerfile-client
           build-args: |
             NVF_REPO=${{env.NVF_REPO}}
@@ -64,7 +64,7 @@ jobs:
         with:
           context: ./docker
           push: true
-          tags: ${{ vars.HARBOR_URL }}/ai4os/ai4os-nvflare-dashboard:${{ github.ref_name }}
+          tags: ${{ vars.HARBOR_URL }}/ai4os/ai4os-nvflare-dashboard:${{ env.NVF_VERSION }}
           file: ./docker/Dockerfile-dashboard
           build-args: |
             NVF_REPO=${{env.NVF_REPO}}
