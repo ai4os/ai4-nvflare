@@ -33,6 +33,8 @@ with app.app_context():
         for var, env_var in env_vars.items():
             if env_var in os.environ.keys() and len(os.environ[env_var]) > 0:
                 project_conf[var] = os.environ[env_var]
+                if var in ['public', 'frozen']:
+                    project_conf[var] = project_conf[var].lower() == 'true'
 
         if len(project_conf) > 0:
             project.update(project_conf)
