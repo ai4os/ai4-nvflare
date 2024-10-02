@@ -17,8 +17,9 @@ with app.app_context():
         project = resp['project']
 
         env_vars = {
-            'server1': 'NVFL_PROJECT_SERVER1',
-            'server2': 'NVFL_PROJECT_SERVER2',
+            'server1': 'NVFL_SERVER1',
+            'server2': 'NVFL_SERVER2',
+            'ha_mode': 'NVFL_HA_MODE',
             'short_name': 'NVFL_PROJECT_SHORT_NAME',
             'title': 'NVFL_PROJECT_TITLE',
             'description': 'NVFL_PROJECT_DESCRIPTION',
@@ -33,7 +34,7 @@ with app.app_context():
         for var, env_var in env_vars.items():
             if env_var in os.environ.keys() and len(os.environ[env_var]) > 0:
                 project_conf[var] = os.environ[env_var]
-                if var in ['public', 'frozen']:
+                if var in ['public', 'frozen', 'ha_mode']:
                     project_conf[var] = project_conf[var].lower() == 'true'
 
         if len(project_conf) > 0:
