@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
 	iputils-ping \
 	lsof \
 	netcat \
-	vim
+	vim \
+	jq
 
 RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools
